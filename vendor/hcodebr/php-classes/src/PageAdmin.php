@@ -1,6 +1,8 @@
-<?php 
+<?php
 
 namespace Hcode;
+
+
 
 class PageAdmin extends Page {
 
@@ -11,6 +13,8 @@ class PageAdmin extends Page {
 
 	}
 
+	
 }
 
-?>
+
+ ?>
