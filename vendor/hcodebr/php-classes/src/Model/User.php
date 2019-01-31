@@ -4,6 +4,7 @@ namespace Hcode\Model;
 
 use \Hcode\DB\Sql;
 use \Hcode\Model;
+use \Hcode\Mailer;
 
 class User extends Model {
 
@@ -183,14 +184,6 @@ class User extends Model {
                  		$code = openssl_encrypt($dataRecovery['idrecovery'], 'aes-256-cbc', User::SECRET, 0, $iv);
                  		$result = base64_encode($iv.$code);
     		            
-    		            /*
-    		            if ($inadmin === true) {
-    		                 $link = "http://www.hcodecommerce.com.br/admin/forgot/reset?code=$result";
-    		            }else {
-    		                 $link = "http://www.hcodecommerce.com.br/forgot/reset?code=$result";
-    		            }
-    		            */
-     
     		            $link = "http://www.hcodecommerce.com.br/admin/forgot/reset?code=$code"; 
     		            $mailer = new Mailer($data['desemail'], $data['desperson'], "Redefinir senha da Hcode Store", "forgot",array(
     		                 "name"=>$data['desperson'],

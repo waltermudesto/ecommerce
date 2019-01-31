@@ -13,7 +13,7 @@ class Mailer{
 
 	private $mail;
 
-	public function __construct($toAddress, $toName, $subject, $tplname, $data = array())
+	public function __construct($toAddress, $toName, $subject, $tplName, $data = array())
 	{
 
 
@@ -28,10 +28,11 @@ class Mailer{
 		   	$tpl = new Tpl;
 
 		   	foreach ($data as $key => $value) {
-		   		$tpl->assign($key, $value)
+		   		$tpl->assign($key, $value);
 		   	}
 
 		   	$html = $tpl->draw($tplName, true);
+		   //$html = $tpl->draw($tplName, true);
 
 			//$this->mail = new PHPMailer\PHPMailer\PHPMailer();
 			$this->mail = new \PHPMailer;
