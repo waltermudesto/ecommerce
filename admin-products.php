@@ -73,7 +73,7 @@ $app->post("/admin/products/:idproduct", function($idproduct){
 	$product->save();
 
 	if($_FILES["file"]["name"] !== "") $product->setPhoto($_FILES["file"]);
-	//$product->setPhoto($_FILES["file"]);
+	//$product->setPhoto($_FILES["file"]); ESTE CODIGO NAO SALVA A FOTO POR ISTO USANDO O CODIGO DE CIMA
 
 	header("Location: /admin/products");
 	exit;
