@@ -20,4 +20,5 @@ require_once("functions.php");
 
 $app->run();
 
+
  ?>
