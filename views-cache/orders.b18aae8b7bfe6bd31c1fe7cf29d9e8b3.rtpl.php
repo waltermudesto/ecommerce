@@ -40,7 +40,7 @@
                     <th>Valor Total</th>
                     <th>Valor do Frete</th>
                     <th>Status</th>
-                    <th style="width: 220px">&nbsp;</th>
+                    <th style="width: 210px">&nbsp;</th>
                   </tr>
                 </thead>
                 <tbody>
