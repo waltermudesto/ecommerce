@@ -1,4 +1,5 @@
 <?php if(!class_exists('Rain\Tpl')){exit;}?>
+
 <div class="product-big-title-area">
 	<div class="container">
 		<div class="row">
@@ -22,10 +23,13 @@
 								<div class="col-md-12">
 
 									<?php if( $error != '' ){ ?>
+
 									<div class="alert alert-danger">
 										<?php echo htmlspecialchars( $error, ENT_COMPAT, 'UTF-8', FALSE ); ?>
+
 									</div>
 									<?php } ?>
+
 
 									<div class="woocommerce-billing-fields">
 										<h3>Endereço de entrega</h3>
@@ -84,6 +88,7 @@
 												</thead>
 												<tbody>
                                                     <?php $counter1=-1;  if( isset($products) && ( is_array($products) || $products instanceof Traversable ) && sizeof($products) ) foreach( $products as $key1 => $value1 ){ $counter1++; ?>
+
 													<tr class="cart_item">
 														<td class="product-name">
 															<?php echo htmlspecialchars( $value1["desproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?> <strong class="product-quantity">× <?php echo htmlspecialchars( $value1["nrqtd"], ENT_COMPAT, 'UTF-8', FALSE ); ?></strong> 
@@ -93,6 +98,7 @@
 														</td>
                                                     </tr>
                                                     <?php } ?>
+
 												</tbody>
 												<tfoot>
 													<tr class="cart-subtotal">
@@ -104,6 +110,7 @@
 														<th>Frete</th>
 														<td>
 															R$<?php echo formatPrice($cart["vlfreight"]); ?>
+
 															<input type="hidden" class="shipping_method" value="free_shipping" id="shipping_method_0" data-index="0" name="shipping_method[0]">
 														</td>
 													</tr>
@@ -113,6 +120,14 @@
 													</tr>
 												</tfoot>
 											</table>
+											<p id="billing_state_field" class="form-row form-row-first address-field validate-state" data-o_class="form-row form-row-first address-field validate-state">
+												<input type="radio" id="method-pagseguro" name="payment-method" placeholder="País" value="1" style="float:left; margin: 30px;">
+												<label class="" for="method-pagseguro"><img style="height:64px;" src="/res/site/img/logo-pagseguro.png"></label>
+											</p>
+											<p id="billing_state_field" class="form-row form-row-first address-field validate-state" data-o_class="form-row form-row-first address-field validate-state">
+												<input type="radio" checked="checked" id="method-paypal" name="payment-method" placeholder="País" value="2" style="float:left; margin: 30px;">
+												<label class="" for="method-paypal"><img style="height:64px;" src="/res/site/img/logo-paypal.png"></label>
+											</p>
 											<div id="payment">
 												<div class="form-row place-order">
 													<input type="submit" data-value="Place order" value="Continuar" id="place_order" name="woocommerce_checkout_place_order" class="button alt">
