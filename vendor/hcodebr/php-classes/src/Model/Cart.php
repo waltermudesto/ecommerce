@@ -300,7 +300,21 @@ class Cart extends Model {
 
 	}
 
-	public function getCalculateTotal()
+	    public function getCalculateTotal()
+    {
+        $this->updateFreight();
+        $products = $this->getProducts();
+        if (count($products) == 0)
+        {
+            $this->setnrdays(NULL);
+            $this->setvlfreight(0);
+        }
+        $totals = $this->getProductsTotals();
+        $this->setvlsubtotal($totals['vlprice']);
+        $this->setvltotal($totals['vlprice'] + $this->getvlfreight());
+    }
+
+	/*public function getCalculateTotal()
 	{
 
 		$this->updateFreight();
@@ -310,7 +324,7 @@ class Cart extends Model {
 		$this->setvlsubtotal($totals['vlprice']);
 		$this->setvltotal($totals['vlprice'] + $this->getvlfreight());
 
-	}
+	}*/
 
 }
 
